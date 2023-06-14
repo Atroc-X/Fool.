@@ -12,7 +12,7 @@ $httpClient.get(weaapi, function(error, response, data){
         var air = "当前风力： " + obj.win + obj.win_speed + "  风速" + obj.win_meter + "\n空气指数： " + obj.air + "  " + obj.air_level + "\n友情提示： " + obj.air_tips;
         var alarm = "天气警报： " + obj.alarm_type + obj.alarm_level + "\n告警提示： " + obj.alarm_title + "  " + obj.alarm_content + "\n更新时间： " + obj.date + " "+ obj.update_time;
         let wmation = [city,wea,air,alarm];
-        $notification.post(wmation[0], wmation[1], wmation[2]);
+        $notification.post(wmation[0], wmation[1], wmation[2], wmation[3]);
         $done();
     }
 }
