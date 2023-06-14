@@ -11,7 +11,7 @@ $httpClient.get(weaapi, function(error, response, data){
         var wea = "天气状况： " + obj.wea + "  当前" + obj.tem + "℃  " + obj.tem2 + "℃～" + obj.tem1 + "℃";
         var air = "当前风力： " + obj.win + obj.win_speed + "  风速" + obj.win_meter + "\n空气指数： " + obj.air + "  " + obj.air_level + "\n友情提示： " + obj.air_tips;
         var alarms = obj.alarm.map(function(alarm) {
-            return "天气警报： " + alarm.alarm_type + alarm.alarm_level + alarm.alarm_title;
+            return "天气警报： " + alarm.alarm_type + alarm.alarm_level;
         }).join("\n");
         var updateTime = "更新时间： " + obj.date + " "+ obj.update_time;
         let wmation = [city, wea, air + "\n" + alarms + "\n" + updateTime];
