@@ -9,8 +9,8 @@ $httpClient.get(weaapi, function(error, response, data){
         console.log(obj);
         var city = "所在城市： " + obj.city;
         var wea = "天气状况： " + obj.wea + "  当前" + obj.tem + "℃  " + obj.tem2 + "℃～" + obj.tem1 + "℃";
-        var air = "当前风力： " + obj.win + obj.win_speed + "  风速" + obj.win_meter + "\n空气指数： " + obj.air + "  " + obj.air_level + "\n友情提示： " + obj.air_tips + "\n更新时间： " + obj.date + " "+ obj.update_time;
-        var alarm = "天气警报： " + obj.alarm_type + obj.alarm_level + "\n告警提示： " + obj.alarm_title + "\n警告内容： " + obj.alarm_content
+        var air = "当前风力： " + obj.win + obj.win_speed + "  风速" + obj.win_meter + "\n空气指数： " + obj.air + "  " + obj.air_level + "\n友情提示： " + obj.air_tips;
+        var alarm = "天气警报： " + obj.alarm_type + obj.alarm_level + "\n告警提示： " + obj.alarm_title + "  " + obj.alarm_content + "\n更新时间： " + obj.date + " "+ obj.update_time;
         let wmation = [city,wea,air,alarm];
         $notification.post(wmation[0], wmation[1], wmation[2]);
         $done();
