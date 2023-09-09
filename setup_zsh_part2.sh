@@ -19,4 +19,5 @@ sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="ys"/' ~/.zshrc
 sed -i 's/^# DISABLE_MAGIC_FUNCTIONS="true"/DISABLE_MAGIC_FUNCTIONS="true"/' ~/.zshrc
 
 # 6. 提示用户
+rm -rf /root/setup_zsh_part1.sh
 echo "zsh 已经全部配置完成，请手动执行source ~/.zshrc并重新进入终端"
