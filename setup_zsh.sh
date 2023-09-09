@@ -22,7 +22,7 @@ fi
 # 3. 安装oh my zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "正在安装oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     echo "oh-my-zsh已经安装."
 fi
