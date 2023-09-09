@@ -22,9 +22,9 @@ fi
 # 3. 安装oh my zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "正在安装oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo -e "\033[31m请运行以下命令以继续安装：\033[0m"
     echo "wget https://raw.githubusercontent.com/Atroc-X/Fool./main/setup_zsh_part2.sh && chmod +x setup_zsh_part2.sh && ./setup_zsh_part2.sh && rm -rf setup_zsh_part2.sh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     echo "oh-my-zsh已经安装."
 fi
