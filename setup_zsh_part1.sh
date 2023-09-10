@@ -1,23 +1,25 @@
 #!/bin/bash
 
-# 1. 检查系统是否有zsh
-if ! command -v zsh &> /dev/null; then
-    echo "zsh未安装，正在为你安装..."
-    sudo apt update
-    sudo apt install -y zsh
-    chsh -s $(which zsh)
-else
-    echo "zsh已经安装."
-fi
+# 1. 更新软件包列表
+sudo apt update
 
-# 2. 检查系统是否有git
-if ! command -v git &> /dev/null; then
-    echo "git未安装，正在为你安装..."
-    sudo apt update
-    sudo apt install -y git
-else
-    echo "git已经安装."
-fi
+# 2. 检查并安装默认包
+check_and_install() {
+    for cmd in "$@"; do
+        if ! command -v $cmd &> /dev/null; then
+            echo "$cmd 未安装，正在为你安装..."
+            sudo apt install -y $cmd
+            # 如果是zsh，还要修改默认shell
+            if [ "$cmd" = "zsh" ]; then
+                chsh -s $(which zsh)
+            fi
+        else
+            echo "$cmd 已经安装."
+        fi
+    done
+}
+commands=("zsh" "git" "sudo" "jq")
+check_and_install "${commands[@]}"
 
 # 3. 安装oh my zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
