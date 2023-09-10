@@ -13,11 +13,14 @@ else
     echo "zsh-syntax-highlighting已经安装."
 fi
 
-# 5. 修改.zshrc 文件
+# 5. 下载xs.zsh-theme
+wget -P /root/.oh-my-zsh/custom/themes -N https://raw.githubusercontent.com/Atroc-X/Fool./main/xs.zsh-theme
+
+# 6. 修改.zshrc 文件
 sed -i 's/plugins=(git)/plugins=(\n    zsh-autosuggestions\n    zsh-syntax-highlighting\n)/' ~/.zshrc
-sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="ys"/' ~/.zshrc
+sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="xs"/' ~/.zshrc
 sed -i 's/^# DISABLE_MAGIC_FUNCTIONS="true"/DISABLE_MAGIC_FUNCTIONS="true"/' ~/.zshrc
 
-# 6. 提示用户
+# 7. 提示用户
 rm -rf /root/setup_zsh_part1.sh
 echo -e "\033[34mzsh 已经全部配置完成，请手动执行source ~/.zshrc并重新进入终端\033[0m"
