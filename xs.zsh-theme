@@ -75,7 +75,7 @@ function get_as() {
 #
 # For example:
 #
-# % XS @ XS-mbp in ~/.oh-my-zsh on git:(master) x [21:47:42] (8.8.8.8) <AS15169  US> C:0
+# % XS @ XS-mbp in ~/.oh-my-zsh on git:(master) x [21:47:42] (8.8.8.8) <AS15169 US> C:0
 # $
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
