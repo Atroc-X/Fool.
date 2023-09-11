@@ -58,12 +58,14 @@ local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 # ip
 function get_ip() {
     local ip_info=$(curl -s -A "Mozilla/5.0" "https://api.ip.sb/geoip")
-    echo "$ip_info" | jq -r '.ip'
+    local ip=$(echo "$ip_info" | jq -r '.ip')
+    echo "$ip"
 }
 
 function get_as() {
-    local ip_info=$(curl -s -A "Mozilla/5.0" "https://api.ip.sb/geoip")
-    echo "$ip_info" | jq -r '"<AS\(.asn)  \(.country_code)>"'
+    local ip=$(get_ip)
+    local ip_info=$(curl -s -A "Mozilla/5.0" "https://ipinfo.io/$ip?token=8e4b3479b0ec80")
+    echo "$ip_info" | jq -r '"<\(.org | split(" ")[0]) \(.country)>"'
 }
 
 # Prompt format:
