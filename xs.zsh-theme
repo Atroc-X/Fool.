@@ -66,7 +66,7 @@ function get_as() {
     local ip=$(get_ip)
     local ip_info=$(curl -s -A "Mozilla/5.0" "https://ipinfo.io/$ip?token=8e4b3479b0ec80")
     local org=$(echo "$ip_info" | jq -r '.org | split(" ")[0]')
-    local country_code=$(curl -s -A "Mozilla/5.0" "https://api.db-ip.com/v2/free/$ip/countryCode")
+    local country_code=$(echo "$ip_info" | jq -r '.country')
     echo "<$org $country_code>"
 }
 
